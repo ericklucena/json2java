@@ -48,6 +48,30 @@ public class JavaObject {
 	public List<JavaObject> getObjectAttributes() {
 		return objectAttributes;
 	}
+	
+	@Override
+	public boolean equals(Object object){
+		
+		boolean isEqual = true;
+		
+		if(object instanceof JavaObject){
+			JavaObject jo = (JavaObject) object;
+			if(this.attributes.size() == jo.attributes.size()){
+				for (JavaAttribute ja : this.attributes){
+					if(!jo.attributes.contains(ja)){
+						isEqual = false;
+						break;
+					}
+				}
+			}else{
+				isEqual = false;
+			}
+		}else{
+			isEqual = false;
+		}
+		
+		return isEqual;
+	}
 
 	@Override
 	public String toString() {

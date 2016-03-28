@@ -62,4 +62,18 @@ public class Json2Java {
 		return classesDefinitions;
 	}
 	
+	public List<String> getPossibleDuplicatedClasses(){
+		List<String> duplicatedClasses = new LinkedList<String>();
+		
+		for(JavaObject object : this.classes.values()){
+			for (JavaObject jo : this.classes.values()){
+				if(object.equals(jo) && !object.getName().equals(jo.getName())){
+					duplicatedClasses.add(object.toString());
+				}
+			}
+		}
+		
+		return duplicatedClasses;
+	}
+	
 }

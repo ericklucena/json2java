@@ -15,6 +15,19 @@ public class JavaAttribute {
 			this.type = Util.inferType(type);
 		}
 	}
+	
+	@Override
+	public boolean equals(Object object){
+		
+		boolean isEqual = false;
+		
+		if(object instanceof JavaAttribute){
+			JavaAttribute jo = (JavaAttribute) object;
+			isEqual = this.name.equals(jo.name) && this.type.equals(jo.type) && this.isList == jo.isList;
+		}
+		
+		return isEqual;
+	}
 
 	@Override
 	public String toString() {
